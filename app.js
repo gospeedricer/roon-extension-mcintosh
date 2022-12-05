@@ -1,6 +1,6 @@
 "use strict";
 
-var McIntosh             = require("node-mcintosh"),
+var McIntosh             = require("node-mcintoshCS"),
     RoonApi              = require("node-roon-api"),
     RoonApiSettings      = require('node-roon-api-settings'),
     RoonApiStatus        = require('node-roon-api-status'),
