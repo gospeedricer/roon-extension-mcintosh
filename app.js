@@ -17,7 +17,7 @@ var roon = new RoonApi({
 });
 
 var mysettings = roon.load_config("settings") || {
-    serialport:    "",
+    serialport:    "/dev/ttyUSB0",
     setsource:     "1",
     initialvolume: 10,
 	startuptime: 7
@@ -93,7 +93,7 @@ var svc_settings = new RoonApiSettings(roon, {
         if (!isdryrun && !l.has_error) {
             var oldmode = mysettings.mode;
             var oldip = mysettings.ip;
-            var oldport = mysettings.serialport;
+            var oldport = mysetting;
             mysettings = l.values;
             svc_settings.update_settings(l);
             let force = false;
