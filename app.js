@@ -25,7 +25,7 @@ var mysettings = roon.load_config("settings") || {
 
 var mcintosh = { };
 
-function makelayout(settings) {
+function makelayout(settings) { // adding general layout settings in extension roon
     var l = {
         values:    settings,
 	layout:    [],
@@ -82,7 +82,7 @@ function makelayout(settings) {
     return l;
 }
 
-var svc_settings = new RoonApiSettings(roon, {
+var svc_settings = new RoonApiSettings(roon, { //service variable function
     get_settings: function(cb) {
         cb(makelayout(mysettings));
     },
@@ -110,10 +110,10 @@ var svc_volume_control = new RoonApiVolumeControl(roon);
 var svc_source_control = new RoonApiSourceControl(roon);
 
 roon.init_services({
-    provided_services: [ svc_volume_control, svc_source_control, svc_settings, svc_status ]
+    provided_services: [ svc_volume_control, svc_source_control, svc_settings, svc_status ] //initiating variables for provided services within Roon app
 });
 
-function setup() {
+function setup() { //called on first right before discovery of roon down below
     if (mcintosh.control)
         mcintosh.control.stop();
 
@@ -142,7 +142,7 @@ function ev_connected(status) {
 
     console.log("[McIntosh Extension] Connected");
 
-    svc_status.set_status("Connected to McIntosh", false);
+    svc_status.set_status("Connected to McIntosh", false); //roon API shows on app of Roon
 
     control.set_volume(mysettings.initialvolume);
     control.set_source(mysettings.setsource);
