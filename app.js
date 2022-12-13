@@ -54,7 +54,7 @@ function makelayout(settings) {
             { value: "9",  title: "MCT"           },
             { value: "10", title: "OPTI 1"        },
             { value: "11", title: "OPTI 2"        },
-            { value: "12", title: "COAX"          }
+            { value: "15", title: "USB"          }
         ],
         setting: "setsource",
     });
