@@ -166,12 +166,10 @@ function ev_connected(status) {
 	},
 	set_mute: function (req, mode) {
 		if (mode == "on") {
-			control.mute(1);
-            mode = "off";
+			control.mute(0);
 		}	
 	    else if (mode == "off") {
 				control.mute(0);
-                mode = "on";
         }
 
 	    req.send_complete("Success");
