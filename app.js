@@ -166,7 +166,8 @@ function ev_connected(status) {
 	},
 	set_mute: function (req, mode) {
 		if (mode == "on") {
-			control.mute(0);
+			control.mute(1);
+            mode = "off";
 		}	
 	    else if (mode == "off") {
 				control.mute(0);
