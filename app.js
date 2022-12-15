@@ -192,7 +192,8 @@ function ev_connected(status) {
 			control.set_volume(mysettings.initialvolume);
 		}
 		else if(this.state.source != mysettings.setsource) {
-			control.set_source(mysettings.setsource);
+			console.log(this.state.source + " and " + mysettings.setsource);
+            control.set_source(mysettings.setsource);
 			req.send_complete("Success");
 		}
 	},
