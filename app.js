@@ -196,6 +196,7 @@ function ev_connected(status) {
             control.set_source(mysettings.setsource);
 			req.send_complete("Success");
 		}
+        else {}
 	},
 	standby: function (req) {
 	    this.state.status = "standby";
