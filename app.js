@@ -17,7 +17,7 @@ var roon = new RoonApi({
 });
 
 var mysettings = roon.load_config("settings") || {
-    serialport:    "/dev/ttyUSB0",
+    serialport:    "",
     setsource:     "1",
     initialvolume: 10,
 	startuptime: 7
