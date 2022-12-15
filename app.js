@@ -184,7 +184,8 @@ function ev_connected(status) {
 	    status:           control.properties.source == "Standby" ? "standby" : (control.properties.source == mysettings.setsource ? "selected" : "deselected")
 	},
 	convenience_switch: function (req) {
-		if(this.state.status == "standby") {
+		control.InputStatus();
+        if(this.state.status == "standby") {
 			control.power_on();
 			control.set_source(mysettings.setsource);
 			setTimeout(() => {
@@ -233,7 +234,7 @@ function ev_source(val) {
     let temp = val;
     if (isFinite(val))
         currentsource = val;
-    if (val == "Muted" && mcintosh.volume_control)
+    else if (val == "Muted" && mcintosh.volume_control)
         mcintosh.volume_control.update_state({ is_muted: true });
     else if (val == "UnMuted" && mcintosh.volume_control)
         mcintosh.volume_control.update_state({ is_muted: false });
