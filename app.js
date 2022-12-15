@@ -191,7 +191,7 @@ function ev_connected(status) {
 			}, mysettings.startuptime * 1000);
 			control.set_volume(mysettings.initialvolume);
 		}
-		else {
+		else if(this.state.source != mysettings.setsource) {
 			control.set_source(mysettings.setsource);
 			req.send_complete("Success");
 		}
