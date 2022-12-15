@@ -229,7 +229,8 @@ function ev_volume(val) {
 function ev_source(val) {
     let control = mcintosh.control;
     console.log("[McIntosh Extension] received source change from device:", val);
-    if (val.isFinite())
+    let temp = val;
+    if (isFinite(val))
         currentsource = val;
     if (val == "Muted" && mcintosh.volume_control)
         mcintosh.volume_control.update_state({ is_muted: true });
