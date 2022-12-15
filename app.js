@@ -23,6 +23,8 @@ var mysettings = roon.load_config("settings") || {
 	startuptime: 7
 };
 
+var currentsource = 0;
+
 var mcintosh = { };
 
 function makelayout(settings) { // adding general layout settings in extension roon
@@ -191,8 +193,8 @@ function ev_connected(status) {
 			}, mysettings.startuptime * 1000);
 			control.set_volume(mysettings.initialvolume);
 		}
-		else if(this.state.source != mysettings.setsource) {
-			console.log(this.state.source + " and " + mysettings.setsource);
+		else if(currentsource != mysettings.setsource) {
+			console.log(currentsource + " and " + mysettings.setsource);
             control.set_source(mysettings.setsource);
 			req.send_complete("Success");
 		}
@@ -227,6 +229,8 @@ function ev_volume(val) {
 function ev_source(val) {
     let control = mcintosh.control;
     console.log("[McIntosh Extension] received source change from device:", val);
+    if (val.isFinite())
+        currentsource = val;
     if (val == "Muted" && mcintosh.volume_control)
         mcintosh.volume_control.update_state({ is_muted: true });
     else if (val == "UnMuted" && mcintosh.volume_control)
