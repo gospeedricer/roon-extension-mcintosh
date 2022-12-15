@@ -18,7 +18,7 @@ var roon = new RoonApi({
 
 var mysettings = roon.load_config("settings") || {
     serialport:    "/dev/ttyUSB0",
-    setsource:     "1",
+    setsource:     "15",
     initialvolume: 10,
 	startuptime: 7
 };
@@ -52,7 +52,6 @@ function makelayout(settings) { // adding general layout settings in extension r
             { value: "5",  title: "UNBAL 3"       },
             { value: "6",  title: "MM PHONO"      },
             { value: "7",  title: "MC PHONO"      },
-            { value: "8",  title: "USB"           },
             { value: "9",  title: "MCT"           },
             { value: "10", title: "OPTI 1"        },
             { value: "11", title: "OPTI 2"        },
